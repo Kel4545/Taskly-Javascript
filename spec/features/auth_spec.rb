@@ -16,4 +16,10 @@ feature 'Auth' do
     expect(page).to have_content("user@example.com")
   end
 
-end
+  scenario 'Anonymous user can view about page' do
+    visit root_path
+    click_link "About"
+    expect(page).to have_content "Words"
+  end
+  end
+
