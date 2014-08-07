@@ -3,7 +3,7 @@ class CreateTasks < ActiveRecord::Migration
     create_table :tasks do |t|
       t.integer :task_list_id
       t.string :name
-      t.string :date
+      t.date :due_date
     end
   end
 end
