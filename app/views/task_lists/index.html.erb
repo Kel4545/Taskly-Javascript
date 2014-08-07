@@ -1,3 +1,6 @@
+<% if flash[:notice] %>
+  <div class="notice"><%= flash[:notice] %></div>
+<% end %>
 <h1>My Lists</h1>
 <a href="/task_lists/new"> + Add Task List</a>
 
@@ -6,6 +9,12 @@
   <section class="task-list">
     <h1><%= task_list.name %></h1>
     <a href="/task_lists/<%= task_list.id %>/edit">Edit</a>
+    <a href="/task_lists/<%= task_list.id %>/new">+ Add Task </a>
+    <% task_list.tasks.each do |tasks| %>
+      <%= tasks.name %>
+    <% end %>
   </section>
 
 <% end %>
+
+

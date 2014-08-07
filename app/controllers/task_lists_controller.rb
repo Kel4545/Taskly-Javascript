@@ -9,17 +9,32 @@ class TaskListsController < ApplicationController
   end
 
   def create
-    task = TaskList.create(name: params[:task_list][:name])
-    if task.errors.messages == {}
-      flash[:notice] = "Task List created successfully!"
+    @task_list = TaskList.new(
+      name: params[:task_list][:name]
+    )
+    if @task_list.save
+      flash[:notice] = "Task List was created successfully!"
       redirect_to root_path
     else
-      @task_list = task
       render :new
     end
   end
 
   def edit
+    @task_list = TaskList.find(
+    params[:id])
+  end
+
+  def update
+  if TaskList.find(
+    params[:id]).update(name: params[:task_list][:name])
+    flash[:notice] = "Your tasks list was successfully updated!"
+    redirect_to root_path
+  else
+    render :new
+  end
 
   end
-end
+  end
+
+

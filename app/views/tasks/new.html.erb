@@ -1,0 +1,16 @@
+<%= form_for @task, url: newbies_path, html: { class: "signin-form" } do |f| %>
+<h1>Add a Task</h1>
+  <div></div>
+  <div>
+  <%= f.label :Description  %>
+  <%= f.text_field :name, autofocus: true %>
+
+  </div>
+  <div>
+    <%= f.submit "Create Task" %>
+  </div>
+
+  <h4>Due Date</h4>
+  <%= select_date Date.today, prefix: :start_date %>
+<% end %>
+
