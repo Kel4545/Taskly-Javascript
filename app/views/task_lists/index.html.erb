@@ -11,10 +11,10 @@
     <a href="/task_lists/<%= task_list.id %>/edit">Edit</a>
     <a href="/task_lists/<%= task_list.id %>/new">+ Add Task </a>
     <% task_list.tasks.each do |tasks| %>
-      <%= tasks.name %>
+    <div>  <%= tasks.name %> </div> 
+      <%= tasks.due_date %>
     <% end %>
   </section>
 
 <% end %>
-
 
