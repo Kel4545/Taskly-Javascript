@@ -8,7 +8,8 @@ class TasksController < ApplicationController
   def create
     @task = Task.new(
       task_list_id: params[:id],
-      name: params[:task][:name]
+      name: params[:task][:name],
+      due_date: parse_due_date(params[:start_date])
     )
 
       if @task.save
@@ -18,6 +19,13 @@ class TasksController < ApplicationController
         render :new
       end
   end
+
+    def parse_due_date(due_date)
+      if due_date
+        string_date = due_date.to_s
+        string_date.to_date
+      end
+    end
   end
 
 
