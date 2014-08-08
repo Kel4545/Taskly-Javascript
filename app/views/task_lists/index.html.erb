@@ -11,8 +11,10 @@
     <a href="/task_lists/<%= task_list.id %>/edit">Edit</a>
     <a href="/task_lists/<%= task_list.id %>/new">+ Add Task </a>
     <% task_list.tasks.each do |tasks| %>
-    <div>  <%= tasks.name %> </div> 
+      <div>  <%= tasks.name %> </div>
       <%= tasks.due_date %>
+      <%= link_to('Delete', "task_lists/#{tasks.id}", method: :delete) %>
+      <%= link_to('Update', "task_lists/#{tasks.id}", method: :patch) %>
     <% end %>
   </section>
 

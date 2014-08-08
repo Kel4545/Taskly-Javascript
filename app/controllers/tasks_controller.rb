@@ -20,12 +20,22 @@ class TasksController < ApplicationController
     end
   end
 
+  def destroy
+    @task = Task.find(params[:id])
+    @task.destroy
+    redirect_to root_path
+
+  end
+
   def parse_due_date(due_date)
     if due_date
       string_date = due_date.to_s
       string_date.to_date
     end
 
+    def update
+      @task = Task.find(params[:id])
+    end
 
   end
 end
