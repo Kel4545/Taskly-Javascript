@@ -35,6 +35,11 @@ class TaskListsController < ApplicationController
       render :new
     end
 
+
+  end
+
+  def show
+    @task_list = TaskList.find(params[:id])
   end
 end
 

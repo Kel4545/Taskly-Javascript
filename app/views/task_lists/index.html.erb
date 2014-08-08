@@ -7,16 +7,23 @@
 <% @task_lists.each do |task_list| %>
 
   <section class="task-list">
-    <h1><%= task_list.name %></h1>
+    <%= link_to 'Completed', completed_path(task_list) %>
+    <h1><%= link_to task_list.name, task_list_path(task_list) %></h1>
     <a href="/task_lists/<%= task_list.id %>/edit">Edit</a>
     <a href="/task_lists/<%= task_list.id %>/new">+ Add Task </a>
     <% task_list.tasks.each do |tasks| %>
-      <div>  <%= tasks.name %> </div>
-      <%= tasks.due_date %>
+      <div><%= tasks.name %> </div>
+        <%= tasks.due_date %>
+
+      <% if task_list.tasks.all.empty? %>
+        <div>
+         <em>Nothing here to see!</em>
+        </div>
+      <% end %>
       <%= link_to('Delete', "task_lists/#{tasks.id}", method: :delete) %>
-      <%= link_to('Update', "task_lists/#{tasks.id}", method: :patch) %>
+      <%= link_to('Complete', "task_lists/#{tasks.id}", method: :patch) %>
     <% end %>
   </section>
 
-<% end %>
 
+<% end %>

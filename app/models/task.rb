@@ -9,5 +9,9 @@ class Task < ActiveRecord::Base
     end
   end
 
-end
+    def empty?
+      attributes.values.compact.empty?
+    end
+  end
+
 
