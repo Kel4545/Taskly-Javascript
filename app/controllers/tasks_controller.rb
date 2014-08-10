@@ -23,9 +23,12 @@ class TasksController < ApplicationController
   def destroy
     @task = Task.find(params[:id])
     @task.destroy
+    if @task.save
+      flash[:notice] ="Task was deleted successfully!"
     redirect_to root_path
-
-  end
+    else
+      render :new
+    end
 
   def update
     @task = Task.find(params[:id])
@@ -42,6 +45,6 @@ class TasksController < ApplicationController
 
   end
 end
-
+end
 
 

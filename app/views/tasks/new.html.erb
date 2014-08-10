@@ -9,13 +9,15 @@
   <div>
     <%= f.submit "Create Task" %>
   </div>
-
+  <%= f.label :assigned_to %><br>
+  <%= f.collection_select(:assigned_to_2, @users, :name, :name, {include_blank: true} ) %>
   <h4>Due Date</h4>
   <%= select_date Date.today, prefix: :start_date %>
   <% if @task.errors.any? %>
     <% @task.errors.messages[:name].each do |error| %>
       <%= error %>
     <% end %>
+
   <% end %>
 <% end %>
 
