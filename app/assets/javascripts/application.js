@@ -3,5 +3,10 @@
 //= require_tree .
 
 
-function MsgBox (textstring) {
-  alert (textstring) }
+function MsgBox (Kelso) {
+  alert (Kelso) }
+
+function changecolor(code) {
+
+  document.bgColor=code
+}
