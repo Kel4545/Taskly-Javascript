@@ -25,24 +25,13 @@
       <%= link_to('Complete', "task_lists/#{tasks.id}", method: :patch) %>
     <% end %>
   </section>
-      <FORM>
-        <INPUT NAME="text1" TYPE=Text>
-        <INPUT NAME="submit" TYPE=Button VALUE="Show Me" onClick="MsgBox(form.text1.value)">
-      </FORM>
-      <BODY>
-
-      <form>
-        <input type="button" name="Button1" value="RED" onclick="changecolor('red')">
-
-        <input type="button" name="Button2" value="GREEN" onclick="changecolor('green')">
-
-        <input type="button" name="Button3" value="BLUE" onclick="changecolor('blue')">
-
-        <input type="button" name="Button4" value="WHITE" onclick="changecolor('white')">
-
+      <form name="searchform" id="search-form">
+        <div>
+          <b>Search</b>
+          <input type="text" name="txtInput" title="Unicorn" />
+          <input type="submit" value="GO!" class="submit" style="cursor: pointer;" />
+        </div>
       </form>
-
-      </BODY>
 <% end %>
 
 <% end %>
