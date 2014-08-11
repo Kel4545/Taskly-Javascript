@@ -25,6 +25,10 @@
       <%= link_to('Complete', "task_lists/#{tasks.id}", method: :patch) %>
     <% end %>
   </section>
+      <FORM>
+        <INPUT NAME="text1" TYPE=Text>
+        <INPUT NAME="submit" TYPE=Button VALUE="Show Me" onClick="MsgBox(form.text1.value)">
+      </FORM>
 <% end %>
 
 <% end %>
